@@ -1,13 +1,6 @@
-def division_merge(lista):
-    tam = len(lista) #10
-    meio = tam/2 
-    ini = 0
-    fim = tam - 1
-    p1 = ini
-    p2 = meio + 1
-    return lista, tam, p1, p2, fim
-
-def merge_sort(lista, inicio, fim):
+def merge_sort(lista, inicio=0, fim=None):
+    if fim is None:
+        fim = len(lista)
     if (fim - inicio) > 1:
         meio = (fim + inicio)//2 
         merge_sort(lista, inicio, meio)
@@ -22,29 +15,34 @@ def merge(lista, inicio, meio, fim):
         if top_left >= len(left):
             lista[k] = right[top_right]
             top_right += 1
-        if top_right >= len(right):
+        elif top_right >= len(right):
             lista[k] = left[top_left]
             top_left += 1
-        if left[top_left] < right[top_right]:
+        elif left[top_left] < right[top_right]:
             lista[k] = left[top_left]
             top_left += 1
         else:
             lista[k] = right[top_right]
             top_right += 1
 
-
-        if p1 != fim or p2 != fim:    
-            division_merge(lista)
-
-        elif p1 == fim and p2 == fim:
-            print("Fim das divisões! ")
-            for top_left in range(0, top_left < tam):
-                if lista[p1][0] > lista[p2][0]:
-
-
 def main():
     lista = [3, 9, 7, 2, 5, 10, 8, 1, 4, 6]
-    tam, p1, p2, fim = division_merge(lista)
-    merge_sort(lista, tam, p1, p2, fim)
+    print("Lista antes: ", lista)
+    merge_sort(lista)
+    print("Lista depois: ", lista)
 
+    lista_ordenada = [1, 2, 3, 4, 5, 6, 7]
+    print("Lista antes: ", lista_ordenada)
+    merge_sort(lista_ordenada)
+    print("Lista depois: ", lista_ordenada)
+
+    lista_inversa = [7, 6, 5, 4, 3, 2, 1]
+    print("Lista antes: ", lista_inversa)
+    merge_sort(lista_inversa)
+    print("Lista depois: ", lista_inversa)
+
+    lista_repetida = [2, 7, 10, 4, 3, 5, 2, 7, 10, 4, 3, 5]
+    print("Lista antes: ", lista_repetida)
+    merge_sort(lista_repetida)
+    print("Lista depois: ", lista_repetida)
 main()
