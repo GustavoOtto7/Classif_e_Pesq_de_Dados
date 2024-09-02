@@ -4,25 +4,28 @@ def division(lista):
     size = len(lista)
     esq = 1
     dir = size - 1
-    while dir > esq:
-        while pivo >= lista[esq]:
+    while esq <= dir:
+        while esq <= dir and lista[esq] <= pivo:
             esq += 1
-        while pivo <= lista[dir]:
+        while esq <= dir and lista[dir] > pivo:
             dir -= 1
-        if lista[esq] < lista[dir]:
+        if esq < dir:
             lista[esq], lista[dir] = lista[dir], lista[esq]
             print("Lista 2: ", lista)
-            break
-    lista[dir], pivo = pivo, lista[dir]
-    print("Lista 3: ", lista)
-    if size > 3:
-        division(lista <= pivo)
-        division(lista > pivo)
-    else: 
+    lista[dir], lista[0] = lista[0], lista[dir]
+    print("Lista 3: ", lista) 
+    return dir
+
+def quicksort(lista):
+    if len(lista) <= 1:
         return lista
+    pivo_ind = division(lista)
+    left = quicksort(lista[:pivo_ind])
+    right = quicksort(lista[pivo_ind+1:])
+    return left + [lista[pivo_ind]] + right
 
 def main():
     lista = [18, 32, 12, 5, 38, 33, 16, 2]
-    lista = division(lista)
+    lista = quicksort(lista)
     print("Lista final: ", lista)
 main()
