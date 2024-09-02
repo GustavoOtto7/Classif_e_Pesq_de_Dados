@@ -2,25 +2,22 @@ def shellsort(lista):
     size = len(lista)
     jump = size//2 
     while jump > 0:
-        for inicio in range(jump):
-            
-
-
-    for i in range(0, size/2):
-        if lista[i] > lista[i + jump]:
-            lista[i + jump], lista[i] = lista[i], lista[i + jump]
-        
-    jump = jump // 2
+        for i in range(jump, size):
+            jump_insertion(lista, i, jump)
+        jump = jump // 2
+    return lista
 
 def jump_insertion(lista, inicio, jump):
-    for ind in range(inicio + jump, len(lista, jump)):
-        valor_atual = lista[ind]
-        while ind >= jump and lista[ind-jump] > valor_atual:
-
+    current_value = lista[inicio]
+    position = inicio
+    while position >= jump and lista[position - jump] > current_value:
+        lista[position] = lista[position - jump]
+        position -= jump
+    lista[position] = current_value
 
 def main():
     lista = [18, 32, 12, 5, 38, 33, 16, 2]
-    shellsort(lista)
-
-
+    print("Lista before: ", lista)
+    lista = shellsort(lista)
+    print("This is the new ordened list: ", lista)
 main()
