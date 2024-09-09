@@ -166,5 +166,4 @@ def main():
     print(f"Tempo para ordenar a lista inversa: {tempo2} segundos")
     print(f"Tempo para ordenar a lista randômica: {tempo3} segundos")
     print(f"Tempo para ordenar a lista com repetidos: {tempo4} segundos")
-
 main()
