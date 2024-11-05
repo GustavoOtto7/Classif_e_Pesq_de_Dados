@@ -1,0 +1,19 @@
+1- Qual método teve o menor número de comparações em média?
+
+O método de busca interpolar teve o menor número de comparações em média, 
+frequentemente realizando apenas uma comparação em listas bem distribuídas.
+
+
+2- Em quais situações você acha que cada método seria mais apropriado?
+
+Busca Binária: Ideal para listas grandes e ordenadas. Rápida e simples de implementar.
+Busca por Salto: Útil em listas ordenadas muito grandes, onde a divisão em blocos reduz comparações.
+Busca Fibonacci: Boa para listas grandes e ordenadas, é uma alternativa à busca binária.
+Busca Interpolar: Excelente para listas ordenadas com valores uniformemente distribuídos, como intervalos numéricos contínuos.
+
+
+3- Como a ordenação da lista afeta a eficiência de cada método?
+
+Todos os métodos precisam de uma lista ordenada para funcionar eficientemente. 
+Em listas desordenadas, eles não conseguem "pular" posições ou dividir a lista de forma vantajosa. 
+A busca interpolar, em particular, requer uma distribuição uniforme dos valores para alcançar o menor número de comparações.
